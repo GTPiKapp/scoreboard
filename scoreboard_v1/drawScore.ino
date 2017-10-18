@@ -21,30 +21,30 @@ void drawScore()
 
 void scoreButtons(int curTime)
 {
-  homescoreState = digitalRead(homePin);
-  awayscoreState = digitalRead(awayPin);
+  homescoreState = digitalRead(HOME_PIN);
+  awayscoreState = digitalRead(AWAY_PIN);
 
   // check home score button
   if(homescoreState == HIGH)
   {
     tone(buzzPin,700,30);
     homeScore++;
-    printTime(curTime);
+    print_time(curTime);
     delay(200);
     while(homescoreState == HIGH)
     {
-      awayscoreState = digitalRead(awayPin);
-      homescoreState = digitalRead(homePin);
+      awayscoreState = digitalRead(AWAY_PIN);
+      homescoreState = digitalRead(HOME_PIN);
       if(awayscoreState == HIGH)
       {
         tone(buzzPin,700,30);
         homeScore--;
         if(homeScore < 0) {homeScore = 0;}
-        printTime(curTime);
+        print_time(curTime);
         delay(200);
         while(awayscoreState == HIGH)
         {
-          awayscoreState = digitalRead(awayPin);
+          awayscoreState = digitalRead(AWAY_PIN);
         }
       }
     }
@@ -55,22 +55,22 @@ void scoreButtons(int curTime)
   {
     tone(buzzPin,700,30);
     awayScore++;
-    printTime(curTime);
+    print_time(curTime);
     delay(200);
     while(awayscoreState == HIGH)
     {
-      homescoreState = digitalRead(homePin);
-      awayscoreState = digitalRead(awayPin);
+      homescoreState = digitalRead(HOME_PIN);
+      awayscoreState = digitalRead(AWAY_PIN);
       if(homescoreState == HIGH)
       {
         tone(buzzPin,700,30);
         awayScore--;
         if(awayScore < 0) {awayScore = 0;}
-        printTime(curTime);
+        print_time(curTime);
         delay(200);
         while(homescoreState == HIGH)
         {
-          homescoreState = digitalRead(homePin);
+          homescoreState = digitalRead(HOME_PIN);
         }
       }
     }

@@ -6,7 +6,7 @@ void pauseTime()
   while(startState == LOW) // wait for start button
   {
     startState = digitalRead(startstopPin);
-    resetState = digitalRead(resetPin); // check reset while waiting for start button
+    resetState = digitalRead(RESET_PIN); // check reset while waiting for start button
     
     // check score
     scoreButtons(count);
@@ -18,9 +18,9 @@ void pauseTime()
       delay(200);
       while(resetState == HIGH)
       {
-        resetState = digitalRead(resetPin);
+        resetState = digitalRead(RESET_PIN);
       }
-      splashScreen();
+      PP_PIN();
     }
     
     // timeout check (turn screen off after 3 min)
@@ -30,11 +30,11 @@ void pauseTime()
       matrix.swapBuffers(false);
       while(resetState == LOW)
       {
-        resetState = digitalRead(resetPin);
+        resetState = digitalRead(RESET_PIN);
       }
       tempMillis = millis();
       tone(buzzPin,700,30);
-      printTime(count);
+      print_time(count);
       delay(200);
     }
   }

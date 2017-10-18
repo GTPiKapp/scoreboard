@@ -31,7 +31,7 @@ void runClock()
           rb+=2;
           dir = -dir;
         }
-        printTime(count);
+        print_time(count);
       }
     }
     
@@ -41,7 +41,7 @@ void runClock()
       previousMillis = currentMillis; // save the current time
       count--; //decrement count time by 1
       getTemp();
-      printTime(count);
+      print_time(count);
       Serial.print("Current count: ");
       Serial.println(count);
       
@@ -65,10 +65,10 @@ void runClock()
     scoreButtons(count);
   }
   tone(buzzPin,350,1700);  // end beep notice
-  resetState = digitalRead(resetPin);
+  resetState = digitalRead(RESET_PIN);
   while(resetState == LOW) // let 0:00 sit untill button press
   {
-    resetState = digitalRead(resetPin);
+    resetState = digitalRead(RESET_PIN);
 
     // timeout check (turn screen off after 3 min)
     currentMillis = millis();
@@ -82,5 +82,5 @@ void runClock()
     }
   }
   // no need for debounce, not returning to loop immediately
-  splashScreen();
+  // splashScreen();
 }

@@ -32,38 +32,40 @@ int r = 1,
 float temperature;
 float newTemp;
 float oldTemp = 75;
-int time = 300; // initialize at 5 min
+
 int count = 300;
 unsigned long currentMillis;
 long previousMillis;
 long tempMillis;
 long shakeMillis;
 long interval = 1000;
-// Button pins
-const int startstopPin = 7;
-const int resetPin = 5;
-const int homePin = 4;
-const int awayPin = 6;
-const int buzzPin = 3;
+
+
 int awayScore = 0;
 int homeScore = 0;
 int startState, pauseState, minState, resetState, homescoreState, awayscoreState; // variables to hold button states
+
+
+enum log_levels{ERROR, INFO, DEBUG};
+
+// change this to change the log leve
+const int LOG_LEVEL = DEBUG;
 
 // SETUP
 void setup()
 {
   matrix.begin();       // Initialize the matrix.
   Serial.begin(9600);
-  pinMode(startstopPin, INPUT);
-  pinMode(buzzPin, OUTPUT);
-  pinMode(resetPin, INPUT);
+  pinMode(PP_PIN, INPUT);
+  pinMode(BUZZ_PIN, OUTPUT);
+  pinMode(RESET_PIN, INPUT);
   setLumosity(0);
 }
 
 // main loop --> jump into state machine
 void loop()
 {
-  splashScreen();
+  run_state_machine();
 }
 
 

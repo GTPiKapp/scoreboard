@@ -1,6 +1,6 @@
 void splashScreen()
 {
-  Serial.println("Reset");
+  printHeader("splash screen");
   matrix.fillScreen(0);
   setLumosity(3);
   yellow = matrix.Color333(2,1,0);
@@ -27,7 +27,6 @@ void splashScreen()
   }
   matrix.swapBuffers(false);
   delay(3000);
-  selectTime();
 }
 
 void fuckrUsty()
