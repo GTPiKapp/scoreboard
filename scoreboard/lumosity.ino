@@ -1,4 +1,4 @@
-void setLumosity(int lum)
+void set_brightness(int lum)
 {
 //  int photocellReading = analogRead(A5);
 //  photocellReading = 1023 - photocellReading;

@@ -24,7 +24,7 @@ int r = 1,
     rb = r+12,
     c = 0,
     cp = c + 7,
-    lumosity = 2,
+    brightness = 2,
     i,
     j;
 
@@ -33,7 +33,6 @@ float temperature;
 float newTemp;
 float oldTemp = 75;
 
-int count = 300;
 unsigned long currentMillis;
 long previousMillis;
 long tempMillis;
@@ -56,10 +55,8 @@ void setup()
 {
   matrix.begin();       // Initialize the matrix.
   Serial.begin(9600);
-  pinMode(PP_PIN, INPUT);
-  pinMode(BUZZ_PIN, OUTPUT);
-  pinMode(RESET_PIN, INPUT);
-  setLumosity(0);
+  io_setup();
+  set_brightness(0);
 }
 
 // main loop --> jump into state machine

@@ -2,7 +2,7 @@ void splashScreen()
 {
   printHeader("splash screen");
   matrix.fillScreen(0);
-  setLumosity(3);
+  set_brightness(3);
   yellow = matrix.Color333(2,1,0);
   srand(millis());
   int r = rand() % 5;
@@ -164,7 +164,7 @@ void drawCoors()
 
 void drawFlag()
 {
-  setLumosity(1);
+  set_brightness(1);
   int k = 1;
   for(i=0;i<31;i+=4)
   {
@@ -180,7 +180,7 @@ void drawFlag()
   {
     matrix.drawLine(i,0,i,16,blue);
   }
-  setLumosity(3);
+  set_brightness(3);
   for(i=1;i<26;i+=3)
   {
     if(k>0)
@@ -413,7 +413,7 @@ void drawThomas()
   //colors
   //red,orange,yellow,green,blue,purple 
   //black,white,grey,brown,peach,wood,lips
-  setLumosity(7);
+  set_brightness(7);
   int peach = matrix.Color444(7,4,1);
   int brown = matrix.Color444(0,0,0);
   int wood = matrix.Color444(3,1,0);
