@@ -9,7 +9,7 @@ void reset_time()
   time = 300;
 }
 
-void print_time()
+void print_screen()
 {
   double frac, int1, int2, int3, temp;
 
@@ -84,7 +84,7 @@ void select_time()
       short_buzzer();
       delay(200);
       increment_time();
-      print_time();
+      print_screen();
       while(reset_is_pressed())
       {
         // minState = digitalRead(RESET_PIN);
@@ -99,7 +99,7 @@ void select_time()
             brightness = 1;
           }
           set_brightness(brightness);
-          print_time();
+          print_screen();
 
           // while the reset button is being held down and I hold down the pause play then
           // only increase brightness by 1 and then wait
@@ -153,7 +153,7 @@ void pauseTime()
       while(!reset_is_pressed());
       tempMillis = millis();
       short_buzzer();
-      print_time();
+      print_screen();
       delay(200);
     }
   }
@@ -196,7 +196,7 @@ int count_down_time()
           rb += 2;
           dir = -dir;
         }
-        print_time();
+        print_screen();
       }
     }
     
@@ -211,7 +211,7 @@ int count_down_time()
         getTemp();
       }
       
-      print_time();
+      print_screen();
       
       if (time <= 3)
       {

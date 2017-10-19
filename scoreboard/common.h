@@ -1,6 +1,6 @@
 // Time prototypes
 void reset_time();
-void print_time();
+void print_screen();
 int increment_time();
 void select_time();
 void pause_time();

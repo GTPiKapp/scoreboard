@@ -29,7 +29,7 @@ void check_score_buttons()
   {
     short_buzzer();
     homeScore++;
-    print_time();
+    print_screen();
     delay(200);
     while(home_is_pressed())
     {
@@ -43,32 +43,32 @@ void check_score_buttons()
         {
           homeScore = 0;
         }
-        print_time();
+        print_screen();
         debounce(away_is_pressed);
       }
     }
   }
 
   //check away score button
-  if(away_is_pressed())
+  if (away_is_pressed())
   {
     short_buzzer();
     awayScore++;
-    print_time();
+    print_screen();
     delay(200);
-    while(away_is_pressed())
+    while (away_is_pressed())
     {
       // homescoreState = digitalRead(HOME_PIN);
       // awayscoreState = digitalRead(AWAY_PIN);
-      if(home_is_pressed())
+      if (home_is_pressed())
       {
         short_buzzer();
         awayScore--;
-        if(awayScore < 0)
+        if (awayScore < 0)
         {
           awayScore = 0;
         }
-        print_time();
+        print_screen();
         debounce(home_is_pressed);
       }
     }

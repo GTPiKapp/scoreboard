@@ -19,7 +19,7 @@ void run_state_machine()
       case INIT_TIME:
         debug("init time");
         
-        print_time();
+        print_screen();
         select_time();
         current_state = COUNT_DOWN;
         break;
@@ -31,10 +31,7 @@ void run_state_machine()
         {
           if (pause_play_is_pressed())
           {
-            // debounce
             debounce(pause_play_is_pressed);
-            
-            // go to pause time state
             current_state = PAUSE_TIME;
           }  
         }
