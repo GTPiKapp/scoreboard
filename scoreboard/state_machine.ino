@@ -62,7 +62,7 @@ void run_state_machine()
         }
         else
         {
-          score_buttons();
+          check_score_buttons();
         }
         break;
 
@@ -83,7 +83,7 @@ void run_state_machine()
           else 
           {
             // want to ensure that score_buttons can't affect timeout of display - only reset button can
-            score_buttons();
+            check_score_buttons();
           }
         }
         break;

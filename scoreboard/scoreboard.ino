@@ -1,5 +1,6 @@
 #include <Adafruit_GFX.h>   // Core graphics library
 #include <RGBmatrixPanel.h> // Hardware-specific library
+#include "./common.h"
 
 #define OE   9
 #define LAT 10
@@ -19,7 +20,7 @@ int r = 1,
     yellow,
     grey,
     black,
-    col,
+    color,
     dir = 1, // direction bit for clock bounce at <= 3 seconds
     rb = r+12,
     c = 0,

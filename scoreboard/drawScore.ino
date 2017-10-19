@@ -3,23 +3,23 @@ void drawScore()
   double frac, intpart, temp;
   setCurs(0);
   // example: homeScore = 13
-  frac = modf(homeScore/10.0, &intpart); // frac = 0.3, intpart = 1
+  frac = modf(homeScore / 10.0, &intpart); // frac = 0.3, intpart = 1
   drawDigit(intpart);
   setCurs(1);
-  temp = frac*10 + 0.5; // int conversion sees a floating 3.00 as 2.993882288... so we add arbitrary 0.5 to ensure it's above truncation point
+  temp = frac * 10 + 0.5; // int conversion sees a floating 3.00 as 2.993882288... so we add arbitrary 0.5 to ensure it's above truncation point
   frac = modf(temp, &intpart); // frac = 0.0, intpart = 3
   drawDigit(intpart);
 
   setCurs(7);
-  frac = modf(awayScore/10.0, &intpart);
+  frac = modf(awayScore / 10.0, &intpart);
   drawDigit(intpart);
   setCurs(8);
-  temp = frac*10 + 0.5;
+  temp = frac * 10 + 0.5;
   frac = modf(temp, &intpart);
   drawDigit(intpart);
 }
 
-void score_buttons()
+void check_score_buttons()
 {
   // homescoreState = digitalRead(HOME_PIN);
   // awayscoreState = digitalRead(AWAY_PIN);
@@ -39,7 +39,10 @@ void score_buttons()
       {
         short_buzzer();
         homeScore--;
-        if(homeScore < 0) {homeScore = 0;}
+        if (homeScore < 0)
+        {
+          homeScore = 0;
+        }
         print_time();
         debounce(away_is_pressed);
       }

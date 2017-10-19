@@ -201,37 +201,37 @@ void drawFlag()
 void drawPenis()
 {
   // Top half
-  int col = red;
-  matrix.drawLine(0,3,0,13,col);
-  matrix.drawLine(8,4,25,4,col);
-  matrix.drawLine(1,1,1,3,col);
-  matrix.drawLine(2,0,2,1,col);
-  matrix.drawLine(3,0,5,0,col);
-  matrix.drawLine(6,0,6,1,col);
-  matrix.drawLine(7,1,7,3,col);
-  matrix.drawLine(8,3,8,4,col);
-  matrix.drawLine(9,4,25,4,col);
-  matrix.drawLine(26,3,28,3,col);
-  matrix.drawLine(29,4,31,6,col);
-  matrix.drawLine(31,7,31,9,col);
+  int color = red;
+  matrix.drawLine(0,3,0,13,color);
+  matrix.drawLine(8,4,25,4,color);
+  matrix.drawLine(1,1,1,3,color);
+  matrix.drawLine(2,0,2,1,color);
+  matrix.drawLine(3,0,5,0,color);
+  matrix.drawLine(6,0,6,1,color);
+  matrix.drawLine(7,1,7,3,color);
+  matrix.drawLine(8,3,8,4,color);
+  matrix.drawLine(9,4,25,4,color);
+  matrix.drawLine(26,3,28,3,color);
+  matrix.drawLine(29,4,31,6,color);
+  matrix.drawLine(31,7,31,9,color);
   
   // Bottom Half
-  matrix.drawLine(1,13,1,14,col);
-  matrix.drawLine(2,14,2,15,col);
-  matrix.drawLine(3,15,6,15,col);
-  matrix.drawLine(6,14,6,15,col);
-  matrix.drawLine(7,12,7,14,col);
-  matrix.drawLine(8,11,8,12,col);
-  matrix.drawLine(9,11,25,11,col);
-  matrix.drawLine(26,12,28,12,col);
-  matrix.drawLine(29,11,30,10,col);
+  matrix.drawLine(1,13,1,14,color);
+  matrix.drawLine(2,14,2,15,color);
+  matrix.drawLine(3,15,6,15,color);
+  matrix.drawLine(6,14,6,15,color);
+  matrix.drawLine(7,12,7,14,color);
+  matrix.drawLine(8,11,8,12,color);
+  matrix.drawLine(9,11,25,11,color);
+  matrix.drawLine(26,12,28,12,color);
+  matrix.drawLine(29,11,30,10,color);
   
   //Middle
-  matrix.drawLine(2,8,2,9,col);
-  matrix.drawLine(3,7,5,7,col);
-  matrix.drawLine(6,8,6,9,col);
-  matrix.drawPixel(7,9,col);
-  matrix.drawLine(9,8,24,8,col);
+  matrix.drawLine(2,8,2,9,color);
+  matrix.drawLine(3,7,5,7,color);
+  matrix.drawLine(6,8,6,9,color);
+  matrix.drawPixel(7,9,color);
+  matrix.drawLine(9,8,24,8,color);
 }
 
 void drawPiKapp()

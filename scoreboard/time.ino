@@ -15,11 +15,11 @@ void print_time()
 
   // Clear Screen
   matrix.fillScreen(0);
-  col = white;
+  color = white;
   drawTeams();
   drawScore();
   drawTemp();
-  col = red;
+  color = red;
   
   // Minutes digit                    ex: num = 345
   temp = (double) time / 60; //                   temp=5.75
@@ -36,10 +36,10 @@ void print_time()
   setCurs(4);
   drawDigit(int1);
   // colon 
-  matrix.drawPixel(c + 9, r + 3, col);
-  matrix.drawPixel(c + 9, r + 4, col);
-  matrix.drawPixel(c + 9, r + 8, col);
-  matrix.drawPixel(c + 9, r + 9, col);
+  matrix.drawPixel(c + 9, r + 3, color);
+  matrix.drawPixel(c + 9, r + 4, color);
+  matrix.drawPixel(c + 9, r + 8, color);
+  matrix.drawPixel(c + 9, r + 9, color);
   setCurs(5);
   drawDigit(int2);
   setCurs(6);
@@ -76,7 +76,7 @@ void select_time()
     // minState = digitalRead(RESET_PIN);
   
     // check score buttons
-    score_buttons();
+    check_score_buttons();
     
     // check add minute state
     if(reset_is_pressed())
@@ -85,8 +85,6 @@ void select_time()
       delay(200);
       increment_time();
       print_time();
-      Serial.print("Select @: ");
-      Serial.println(time);
       while(reset_is_pressed())
       {
         // minState = digitalRead(RESET_PIN);
@@ -136,7 +134,7 @@ void pauseTime()
     // resetState = digitalRead(RESET_PIN); // check reset while waiting for start button
     
     // check score
-    score_buttons();
+    check_score_buttons();
     
     // check reset button
     if(reset_is_pressed())
@@ -207,10 +205,13 @@ int count_down_time()
     {
       previousMillis = currentMillis; // save the current time
       time--; //decrement time time by 1
-      getTemp();
+
+      if (time % 27 == 0)
+      {
+        getTemp();
+      }
+      
       print_time();
-      Serial.print("Current time: ");
-      Serial.println(time);
       
       if (time <= 3)
       {
@@ -221,7 +222,7 @@ int count_down_time()
     //button check
     // pauseState = digitalRead(startstopPin);
    
-    score_buttons();
+    check_score_buttons();
   }
   return time;
 }
