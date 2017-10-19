@@ -1,6 +1,5 @@
 enum states{SPLASH_SCREEN, INIT_TIME, COUNT_DOWN, PAUSE_TIME, TIME_ZERO};
 
-
 void run_state_machine()
 {
   int current_state = SPLASH_SCREEN;
@@ -93,12 +92,7 @@ void run_state_machine()
 }
 
 void check_score_buttons()
-{
-  // homescoreState = digitalRead(HOME_PIN);
-  // awayscoreState = digitalRead(AWAY_PIN);
-
-  // check home score button
-  if(home_is_pressed())
+{  if(home_is_pressed())
   {
     short_buzzer();
     homeScore++;
@@ -106,8 +100,6 @@ void check_score_buttons()
     delay(200);
     while(home_is_pressed())
     {
-      // awayscoreState = digitalRead(AWAY_PIN);
-      // homescoreState = digitalRead(HOME_PIN);
       if(away_is_pressed())
       {
         short_buzzer();
@@ -122,7 +114,6 @@ void check_score_buttons()
     }
   }
 
-  //check away score button
   if (away_is_pressed())
   {
     short_buzzer();
@@ -131,8 +122,6 @@ void check_score_buttons()
     delay(200);
     while (away_is_pressed())
     {
-      // homescoreState = digitalRead(HOME_PIN);
-      // awayscoreState = digitalRead(AWAY_PIN);
       if (home_is_pressed())
       {
         short_buzzer();

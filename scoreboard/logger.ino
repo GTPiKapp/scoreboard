@@ -1,3 +1,7 @@
+enum log_levels{ERROR, INFO, DEBUG};
+// change this to change the log level
+const int LOG_LEVEL = DEBUG;
+
 void log(String level, String separator, String message)
 {
     Serial.println("[" + level + "]" + separator + message);

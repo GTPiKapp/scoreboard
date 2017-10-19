@@ -46,11 +46,6 @@ int homeScore = 0;
 int startState, pauseState, minState, resetState, homescoreState, awayscoreState; // variables to hold button states
 
 
-enum log_levels{ERROR, INFO, DEBUG};
-
-// change this to change the log leve
-const int LOG_LEVEL = DEBUG;
-
 // SETUP
 void setup()
 {

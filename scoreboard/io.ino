@@ -1,11 +1,13 @@
 // Auxilary pins
 const int BUZZ_PIN = 3;
+const int TEMP_PIN = 5;
 
 // Button pins
 const int HOME_PIN = 7; // Orange wire (pin 7) (yellow button)
 const int AWAY_PIN = 5; // Blue wire (pin 5) (blue button)
 const int PP_PIN = 6; // Green wire (pin 6) (green button)
 const int RESET_PIN = 4; // Brown wire (pin 4) (black button)
+
 
 
 void io_setup()
@@ -68,11 +70,11 @@ bool away_is_pressed()
 
 void getTemp()
 {
-  int val = analogRead(5);
-  float mv = ( val/1024.0)*5000; 
-  float cel = mv/10;
-  float fahrenheit = (cel*9)/5 + 32;
-  newTemp = 0.1*fahrenheit + 0.9*oldTemp;
+  int val = analogRead(TEMP_PIN);
+  float mv = (val / 1024.0) * 5000; 
+  float cel = mv / 10;
+  float fahrenheit = (cel * 9) / 5 + 32;
+  newTemp = 0.1 * fahrenheit + 0.9 * oldTemp;
   oldTemp = newTemp;
   temperature = newTemp - 4;
 }
