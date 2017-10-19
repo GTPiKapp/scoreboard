@@ -1,9 +1,3 @@
-/*
-  this doesn't need to take in a parameter as far as I can see. We have the global variable for time.
-*/
-
-int time = 300; // initialize at 5 min
-
 void reset_time()
 {
   time = 300;

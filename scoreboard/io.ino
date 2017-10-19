@@ -65,3 +65,14 @@ bool away_is_pressed()
 {
   return check_pin(AWAY_PIN);
 }
+
+void getTemp()
+{
+  int val = analogRead(5);
+  float mv = ( val/1024.0)*5000; 
+  float cel = mv/10;
+  float fahrenheit = (cel*9)/5 + 32;
+  newTemp = 0.1*fahrenheit + 0.9*oldTemp;
+  oldTemp = newTemp;
+  temperature = newTemp - 4;
+}

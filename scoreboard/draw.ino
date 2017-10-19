@@ -1,3 +1,24 @@
+void drawScore()
+{
+  double frac, intpart, temp;
+  setCurs(0);
+  // example: homeScore = 13
+  frac = modf(homeScore / 10.0, &intpart); // frac = 0.3, intpart = 1
+  drawDigit(intpart);
+  setCurs(1);
+  temp = frac * 10 + 0.5; // int conversion sees a floating 3.00 as 2.993882288... so we add arbitrary 0.5 to ensure it's above truncation point
+  frac = modf(temp, &intpart); // frac = 0.0, intpart = 3
+  drawDigit(intpart);
+
+  setCurs(7);
+  frac = modf(awayScore / 10.0, &intpart);
+  drawDigit(intpart);
+  setCurs(8);
+  temp = frac * 10 + 0.5;
+  frac = modf(temp, &intpart);
+  drawDigit(intpart);
+}
+
 void drawTeams()
 {
   // H
@@ -45,4 +66,37 @@ void drawTeams()
   matrix.drawLine(s+21,6,s+21, 12, color);
   matrix.drawLine(s+20,13,s+18, 13, color);
   matrix.drawPixel(s+17, 12, color);
+}
+
+void drawTemp()
+{
+  // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
+
+  if(temperature >= 60)
+  {
+    color = yellow;
+  }
+  else
+  {
+    color = blue;
+  }
+  // display temp numbers
+  double frac, intpart, temp;
+  char str1;
+  frac = modf(temperature / 10.0, &intpart);
+  setCurs(2);
+  drawDigit(intpart);
+
+  
+  temp = temperature - intpart*10;
+  frac = modf(temp, &intpart);
+  setCurs(3);
+  drawDigit(intpart);
+  Serial.println(temp);
+  Serial.println(intpart);
+  
+  matrix.drawPixel(40,2,color);
+  matrix.drawPixel(39,1,color);
+  matrix.drawPixel(39,3,color);
+  matrix.drawPixel(38,2,color);
 }
