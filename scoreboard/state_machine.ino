@@ -30,6 +30,7 @@ void run_state_machine()
         {
           if (pause_play_is_pressed())
           {
+            short_buzzer();
             debounce(pause_play_is_pressed);
             current_state = PAUSE_TIME;
           }  
@@ -45,6 +46,7 @@ void run_state_machine()
 
         if (pause_play_is_pressed())
         {
+          short_buzzer();
           delay(200);
           while (pause_play_is_pressed());
           current_state = COUNT_DOWN;
@@ -54,6 +56,7 @@ void run_state_machine()
           short_buzzer();
           delay(200);
           while (reset_is_pressed());
+          reset_time();   
           current_state = SPLASH_SCREEN;
         }
         else
@@ -66,6 +69,8 @@ void run_state_machine()
         debug("time is zero");
         if (reset_is_pressed())
         {
+          short_buzzer();
+          reset_time();
           current_state = SPLASH_SCREEN;
         }
         else // let 0:00 sit untill button press

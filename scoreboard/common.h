@@ -21,3 +21,6 @@ bool away_is_pressed();
 
 // some global variables
 int time = 300; // initialize at 5 min
+
+// aparently arduino complains that this number can overflow an int so its a long
+const long TIMEOUT = 180000; // initialized at 3 min (measured in miliseconds)

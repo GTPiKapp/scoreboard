@@ -6,10 +6,9 @@ enum innings{
   THIRD
 };
 
-int current_inning;
-
 void reset_time()
 {
+  static int current_inning = BOTTOM_OF_FIRST;
   switch (current_inning)
   {
     case BOTTOM_OF_FIRST:
@@ -88,11 +87,14 @@ void select_time()
     }
 
     // timeout check (turn screen off after 3 min)
+    // THIS IS THE RIGHT WAY TO HANDLE TIMEOUT GIVEN THE DEBOUNCE AND PRINT SCREEN
     currentMillis = millis();
-    if(currentMillis - tempMillis > 180000) {
+    if(currentMillis - tempMillis > TIMEOUT) {
       matrix.fillScreen(0);
       matrix.swapBuffers(false);
       while(!reset_is_pressed());
+      debounce(reset_is_pressed);
+      print_screen();
       tempMillis = millis();
     }
   }
@@ -118,11 +120,13 @@ void pauseTime()
     
     // timeout check (turn screen off after 3 min)
     currentMillis = millis();
-    if (currentMillis - tempMillis > 180000)
+    debug("" + (currentMillis - tempMillis));
+    if (currentMillis - tempMillis > TIMEOUT)
     {
       matrix.fillScreen(0);
       matrix.swapBuffers(false);
       while(!reset_is_pressed());
+      debounce(reset_is_pressed);
       tempMillis = millis();
       short_buzzer();
       print_screen();
