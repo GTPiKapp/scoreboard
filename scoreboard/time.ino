@@ -9,6 +9,7 @@ enum innings{
 void reset_time()
 {
   static int current_inning = BOTTOM_OF_FIRST;
+  
   switch (current_inning)
   {
     case BOTTOM_OF_FIRST:

@@ -1,6 +1,6 @@
-enum log_levels{ERROR, INFO, DEBUG};
+enum log_levels{OFF, ERROR, INFO, DEBUG};
 // change this to change the log level
-const int LOG_LEVEL = DEBUG;
+const int LOG_LEVEL = OFF;
 
 void log(String level, String separator, String message)
 {
